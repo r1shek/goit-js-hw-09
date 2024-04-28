@@ -24,7 +24,7 @@ fillUpForm();
 
 form.addEventListener('input', () => {
   formData.email = form.elements.email.value;
-  formData.message = form.elements.message.value;
+  formData.message = form.elements.message.value.trim();
   saveFormData();
 });
 
@@ -33,8 +33,7 @@ form.addEventListener('submit', event => {
   if (formData.email === '' || formData.message === '') {
     alert('Fill please all fields');
   } else {
-    console.log('Email:', formData.email);
-    console.log('Message:', formData.message);
+    console.log('Form', formData);
     localStorage.removeItem(localStorageKey);
     formData.email = '';
     formData.message = '';
