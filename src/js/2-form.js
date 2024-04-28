@@ -15,8 +15,12 @@ function fillUpForm() {
 
   if (savedData) {
     const savedFormData = JSON.parse(savedData);
-    form.elements.email.value = savedFormData.email;
-    form.elements.message.value = savedFormData.message;
+    if (savedFormData.email !== '' && savedFormData.message !== '') {
+      formData.email = savedFormData.email;
+      formData.message = savedFormData.message;
+      form.elements.email.value = formData.email;
+      form.elements.message.value = formData.message;
+    }
   }
 }
 
